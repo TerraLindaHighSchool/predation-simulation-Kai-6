@@ -25,6 +25,7 @@ public class Forest extends World
     private int step;
     private Animal animal;
     private Plant plant;
+    private boolean titlePrinted;
     
     // Forest constructor
     public Forest() 
@@ -97,9 +98,18 @@ public class Forest extends World
             String herbivoreLine = "Herbivore: " + HerbivoreObjects.size();
             String carnivoreLine = "Carnivore: " + CarnivoreObjects.size();
             System.out.format("%15s%13s%16s%18s\n", stepLine, plantLine, herbivoreLine, carnivoreLine);
+            String toPrint = "Step\tPlants(by 10s)\tHerbivores\tCarnivores\n";
+            if(!titlePrinted)
+            {
+                titlePrinted = true;
+            }
+            else
+            {
+                toPrint = step + "\t" + PlantObjects.size()/10 + "\t" + HerbivoreObjects.size() + "\t" + CarnivoreObjects.size() + "\n";
+            }
             try
             {
-                myWriter.append(stepLine + "\t" + plantLine + "\t" + herbivoreLine + "\t" + carnivoreLine + "\n");
+                myWriter.append(toPrint);
             } catch (IOException e)
             {
                 System.out.println("An error occurred.");
