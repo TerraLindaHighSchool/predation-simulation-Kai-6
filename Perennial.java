@@ -12,7 +12,7 @@ public class Perennial extends Plant
     private final int SEEDS = 20;
     private final int SURVIVAL = 3;  // percentage
     private final int DENSITY = 30;
-    private final int SEED_CYCLE = 700;
+    private final int SEED_CYCLE = 2000;
     private final int LONGEVITY = 3600;
     
     // Herb Variables
