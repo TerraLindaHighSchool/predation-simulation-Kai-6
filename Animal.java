@@ -27,8 +27,4 @@ public abstract class Animal extends Actor
             getWorld().removeObject(this);
         }
     }
-    protected double distTo(int x, int y)
-    {
-        return Math.abs(Math.sqrt(Math.pow(getX() - x, 2) + Math.pow(getY() - y, 2)));
-    }
 }

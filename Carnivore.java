@@ -22,7 +22,6 @@ public class Carnivore extends Animal
     private String imageFileName;
     private int longevity;
     private int fed;
-    private Actor targetPrey;
     
     // General
     private int age;   
@@ -56,20 +55,12 @@ public class Carnivore extends Animal
         // If there are old enough to hunt and hungry the turn to food.
         if(fed < FOOD_TO_BREED && age > BREED_AGE / 3)
         {
-            List preyInSight = getObjectsInRange(VISION_DISTANCE, Herbivore.class);
+            List preyInSight = getNeighbours(VISION_DISTANCE, true, Herbivore.class);
 
             if(preyInSight.size() > 0)
             {
-                targetPrey = (Actor) preyInSight.get(0);
-                for(int i = 0; i < preyInSight.size(); i++)
-                {
-                    Actor prey = (Actor) preyInSight.get(i);
-                    if(distTo(prey.getX(), prey.getY()) < distTo(targetPrey.getX(), targetPrey.getY()))
-                    {
-                        targetPrey = prey;
-                    }
-                }
-                turnTowards(targetPrey.getX(), targetPrey.getY());
+                Actor prey = (Actor) preyInSight.get(0); 
+                turnTowards(prey.getX(), prey.getY());
             }
         }
     }
@@ -85,4 +76,5 @@ public class Carnivore extends Animal
             }
         }
     }
+ 
 }

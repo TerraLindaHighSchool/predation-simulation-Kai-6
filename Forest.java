@@ -26,6 +26,7 @@ public class Forest extends World
     private Animal animal;
     private Plant plant;
     private boolean titlePrinted;
+    
     // Forest constructor
     public Forest() 
     {
